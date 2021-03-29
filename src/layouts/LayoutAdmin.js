@@ -1,25 +1,40 @@
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React, { useState, Fragment } from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { Layout } from "antd";
+import MenuTop from '../components/Admin/MenuTop';
+import MenuSider from '../components/Admin/MenuSider';
+import AdminSignIn from '../pages/Admin/SignIn';
 
 import "./LayoutAdmin.scss";
 
 const LayoutAdmin = (props) => {
 
     const { routes } = props;
+    const [menuCollapsed, setMenuCollapsed] = useState(false);
     const { Header, Content, Footer } = Layout;
 
-    // console.log(routes);
+    const user = null;
+
+    if (!user) {
+        return (
+            <Fragment>
+                <Route path="/admin/login" component={AdminSignIn} />
+                <Redirect to="/admin/login" />
+            </Fragment>
+        );
+    };
 
     return (
         <Layout>
-            <h2>Menú Sider</h2>
-            <Layout>
-                <Header>Header...</Header>
-                <Content>
+            <MenuSider menuCollapsed={menuCollapsed} />
+            <Layout className="layout-admin">
+                <Header className="layout-admin__header">
+                    <MenuTop menuCollapsed={menuCollapsed} setMenuCollapsed={setMenuCollapsed} />
+                </Header>
+                <Content className="layout-admin__content" style={{ marginLeft: menuCollapsed ? "80px" : "200px" }}>
                     <LoadRoutes routes={routes} />
                 </Content>
-                <Footer>Piñisco</Footer>
+                <Footer className="layout-admin__footer">Piñisco</Footer>
             </Layout>
         </Layout>
     );
