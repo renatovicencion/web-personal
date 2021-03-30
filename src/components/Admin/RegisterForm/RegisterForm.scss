@@ -1,0 +1,81 @@
+@import "../../../scss/index.scss";
+
+.register-form {
+    text-align: left;
+
+    .ant-form-item {
+        &:nth-child(3),
+        &:last-of-type {
+            margin: 0;
+        }
+    }
+
+    &__input {
+        .ant-input-prefix {
+            .ico {
+                font-size: 0em + 22px / $defaultFontSize;
+            }
+        }
+
+        input {
+            font-size: 0em + 20px / $defaultFontSize;
+            padding: 10px 10px 10px 20px !important;
+        }
+
+        .ant-input-affix-wrapper-focused {
+            border-color: $primary-color;
+            box-shadow: none;
+        }
+
+        .ant-input-affix-wrapper {
+            &:focus, &:hover {
+                border-color: $primary-color;
+                box-shadow: none;
+            }
+        }
+
+        // .ant-input-group-addon  { 
+        //     color: $font-light;
+        // }
+
+        // .success, .ant-input-group-addon  {
+        //     background-color: $success;
+        //     border: $success;
+        // }
+
+        // .success {
+        //     background-color: $font-light;
+        //     border-color: $background-success;
+        //     color: $font-dark;
+        // }
+
+        // .error, .ant-input-group-addon  {
+        //     background-color: $error;
+        //     border: $error;
+        // }
+
+        // .error {
+        //     background-color: $font-light;
+        //     border-color: $background-error;
+        //     color: $font-dark;
+        // } 
+    }
+
+    &__button {
+        width: 100%;
+        background-color: $primary-color;
+        color: $font-light;
+
+        &:hover {
+            background-color: $primary-color-hover;
+            color: $font-light;
+        }
+
+        &:focus,
+        &:active {
+            background-color: $primary-color;
+            color: $font-light;
+            border: 0;
+        }
+    }
+}
