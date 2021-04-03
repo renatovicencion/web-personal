@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from "antd";
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { MenuUnfoldOutlined, MenuFoldOutlined, PoweroffOutlined } from '@ant-design/icons';
 import logo from '../../../assets/img/png/logo-white.png';
 import { logout } from '../../../api/auth';
