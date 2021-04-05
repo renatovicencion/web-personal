@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import { Route, Switch } from 'react-router-dom';
 import { Layout, Row, Col } from "antd";
@@ -11,17 +11,23 @@ const LayoutBasic = ({ routes }) => {
     const { Footer } = Layout;
 
     return (
-        <Row>
-            <Col lg={4} />
 
-            <Col lg={16}>
-                <MenuTop />
-                <LoadRoutes routes={routes} />
-                <Footer>Piñisco...</Footer>
-            </Col>
+        <Fragment>
+            <Row>
+                <Col lg={4} />
 
-            <Col lg={4} />
-        </Row>
+                <Col lg={16}>
+                    <MenuTop />
+                </Col>
+
+                <Col lg={4} />
+            </Row>
+
+            <LoadRoutes routes={routes} />
+            <Footer>Piñisco...</Footer>
+        
+        </Fragment>
+
     );
 };
 

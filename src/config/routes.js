@@ -14,6 +14,7 @@ import Error404 from '../pages/Error404';
 // Pages
 import Home from '../pages/Home';
 import Contact from '../pages/Contact';
+import Courses from '../pages/Courses';
 
 const routes = [
     {
@@ -59,6 +60,11 @@ const routes = [
             {
                 path: '/contact',
                 component: Contact,
+                exact: true
+            },
+            {
+                path: '/courses',
+                component: Courses,
                 exact: true
             },
             {
