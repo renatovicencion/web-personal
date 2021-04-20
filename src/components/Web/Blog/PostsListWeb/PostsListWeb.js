@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 
+import { Helmet } from 'react-helmet';
 import { Spin, List, notification } from 'antd';
 import { Link } from 'react-router-dom';
 import moment from "moment";
@@ -40,14 +41,19 @@ const PostsListWeb = ({ location, history }) => {
     }
 
     return (
-        <div className="posts-list-web">
-            <h1>Blog</h1>
-            <List 
-                dataSource={posts.docs}
-                renderItem={post => <Post post={post} />} 
-            />
-            <Pagination posts={posts} location={location} history={history} />
-        </div>
+        <Fragment>
+            <Helmet>
+                <title>Blog de Programación | Piñisco</title>
+            </Helmet>
+            <div className="posts-list-web">
+                <h1>Blog</h1>
+                <List 
+                    dataSource={posts.docs}
+                    renderItem={post => <Post post={post} />} 
+                />
+                <Pagination posts={posts} location={location} history={history} />
+            </div>
+        </Fragment>
     );
 };
 
